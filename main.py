@@ -16,6 +16,7 @@ from train_network import Train_Network
 from helper import Helper
 
 use_cuda = torch.cuda.is_available()
+helpFn = Helper()
 
 def train_iters(model, input_lang, output_lang, pairs, max_length, batch_size=1,
                 n_iters=50, learning_rate=0.001, tracking_pair=None, print_every=1, plot_every=1):
@@ -132,8 +133,6 @@ if __name__ == "__main__":
     input_lang, output_lang, pairs = data_preprocess.prepare_data('eng', 'fra', True)
     tracking_pair = random.choice(pairs)
     print(tracking_pair)
-
-    helpFn = Helper()
 
     ''' Use pre-trained word embeddings '''
     # embedding_src = Get_Embedding(input_lang.word2index, input_lang.word2count, "../Embeddings/GoogleNews/")
